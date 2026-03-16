@@ -1,0 +1,71 @@
+# .windsurfrules — Behavioral Rules for the AI
+# This file enforces HOW the AI behaves. Read on every session.
+# Requirements (WHAT to build) live in docs/project/requirements/ — follow those sequentially.
+
+# ─────────────────────────────────────────────
+# TRIGGER-BASED WORKFLOW ENFORCEMENT
+# Match your action → read the file → follow it
+# ─────────────────────────────────────────────
+
+# SESSION START    → read docs/project/config/epics/ACTIVE.md
+# DEBUGGING ERROR  → read docs/workflow/ERRORS.md
+# TECH DECISION    → read docs/workflow/ADR.md
+# ADDING LOGS      → read docs/workflow/LOGGING.md
+# COMMITTING CODE  → read docs/workflow/GIT_WORKFLOW.md
+
+# ─────────────────────────────────────────────
+# MANDATORY DEVELOPMENT SEQUENCE
+# Follow this EXACT sequence for every code change
+# ─────────────────────────────────────────────
+
+1. Understand requirement → ask questions if unclear
+2. Propose approach → get user approval before coding
+3. Implement → only after approval
+4. Create test script → executable `.py` file in `backend/tests/`
+5. Propose test → show what it does, wait for user approval
+6. Run test → verify it passes, check logs (backend + frontend)
+7. Get user confirmation → user says "done"
+8. Update MDs → ONLY now: check [x] tasks, update status
+
+# ─────────────────────────────────────────────
+# HARD RULES — ALWAYS ACTIVE
+# ─────────────────────────────────────────────
+
+## Before writing or modifying code:
+- Get user approval first
+- Check docs/workflow/ERRORS.md — has this problem been solved before?
+- Check docs/workflow/ADR.md — does a past decision constrain this implementation?
+- NEVER check [x] in MD files before: test script created + executed + user confirms
+
+## After ANY code change:
+- Check logs (backend + frontend) — never assume code works
+- Update docs/project/config/build-log.md (session log)
+- Update docs/project/config/codebase.md (if modules changed)
+- Update docs/workflow/ERRORS.md (if bug encountered)
+- Update docs/workflow/ADR.md (if technical decision made)
+
+## Before committing/pushing:
+- Read docs/workflow/GIT_WORKFLOW.md — follow commit convention
+- Use `python scripts/git_ops.py <command>` — never manually craft git commands
+- Confirm with user before git commit/push
+
+## Code quality (non-negotiable):
+- Docstrings on every function
+- No magic numbers — named constants
+- Max 40 lines per function, max 300 lines per file
+- No silent failures — handle all errors explicitly
+- No console.log/print in production — use the logger
+- docs/project/testing/BLIND_SCENARIOS.md is SEALED — never read or modify
+
+## Documentation:
+- `.md` files in `docs/` → can update without approval
+- Code files → require explicit approval
+
+## Scope:
+- Only build what the current Epic/Story requires
+- Never add unlisted dependencies without user approval
+- If uncertain, ASK — do not assume
+
+## Communication:
+- State what you will do and which files you'll touch BEFORE doing it
+- End substantive responses with: 📍 Story: [EPIC-X / Story Y] | 📋 Next: [what comes next]

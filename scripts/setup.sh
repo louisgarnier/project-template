@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Setup script for template project
-# ⚠️ Before running, read: docs/workflow/BEST_PRACTICES.md
+# ⚠️ Before running, read: .windsurfrules
 
 set -e  # Exit on error
 
 echo "🚀 Setting up template project..."
 echo ""
-echo "⚠️  Remember: Always check docs/workflow/BEST_PRACTICES.md before making changes!"
+echo "⚠️  Remember: All AI behavioral rules are in .windsurfrules"
 echo ""
 
 # Colors for output
@@ -53,21 +53,6 @@ fi
 echo -e "${GREEN}✅ Frontend setup complete!${NC}"
 cd ..
 
-# Environment file
-echo ""
-echo -e "${YELLOW}📝 Environment configuration...${NC}"
-if [ ! -f ".env" ]; then
-    if [ -f ".env.example" ]; then
-        echo "Creating .env file from .env.example..."
-        cp .env.example .env
-        echo -e "${YELLOW}⚠️  Please edit .env file with your configuration${NC}"
-    else
-        echo -e "${YELLOW}⚠️  No .env.example found. Create .env manually if needed.${NC}"
-    fi
-else
-    echo ".env file already exists"
-fi
-
 # Database directory
 echo ""
 echo "Creating database directory..."
@@ -77,11 +62,14 @@ echo ""
 echo -e "${GREEN}✅ Setup complete!${NC}"
 echo ""
 echo "Next steps:"
-echo "1. Review docs/workflow/BEST_PRACTICES.md"
+echo "1. Review .windsurfrules (AI behavioral rules)"
 echo "2. Review SETUP_CHECKLIST.md"
-echo "3. Configure .env file if needed"
+echo "3. Review README.md (3-tier documentation architecture)"
 echo "4. Start backend: cd backend && source venv/bin/activate && python3 -m uvicorn backend.api.main:app --reload"
 echo "5. Start frontend: cd frontend && npm run dev"
 echo ""
-echo "⚠️  Remember: Always check docs/workflow/BEST_PRACTICES.md before making changes!"
+echo "⚠️  Remember: All AI rules live in .windsurfrules — single source of truth"
+
+
+
 

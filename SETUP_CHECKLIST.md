@@ -4,51 +4,53 @@
 
 ## Pre-Development Checklist
 
-- [ ] **Read `docs/workflow/BEST_PRACTICES.md`** - ⚠️ **MANDATORY**
+- [ ] **Read `.windsurfrules`** - ⚠️ **MANDATORY** - All AI behavioral rules
 - [ ] **Read `docs/workflow/GIT_WORKFLOW.md`** - Understand git workflow
-- [ ] **Review project structure** - Understand the architecture
-- [ ] **Set up environment** - Copy `.env.example` to `.env` and configure
-- [ ] **Install dependencies** - Run `./scripts/setup.sh` or manually install
+- [ ] **Review `README.md`** - Understand the 3-tier documentation architecture
+- [ ] **Install dependencies** - Run `./scripts/setup.sh`
 
 ## Initial Setup
 
-### 1. Environment Setup
-- [ ] Copy `.env.example` to `.env`
-- [ ] Configure environment variables in `.env`
-- [ ] Verify `.env` is in `.gitignore` (never commit `.env`)
+### 1. Run Setup Script
+```bash
+./scripts/setup.sh
+```
+This will:
+- Create Python virtual environment
+- Install backend dependencies
+- Install frontend dependencies
+- Set up project directories
 
 ### 2. Backend Setup
 - [ ] Navigate to `backend/`
-- [ ] Create virtual environment: `python3 -m venv venv`
 - [ ] Activate virtual environment: `source venv/bin/activate` (macOS/Linux)
-- [ ] Install dependencies: `pip install -r requirements.txt`
-- [ ] Verify installation: `python3 -m uvicorn api.main:app --help`
+- [ ] Verify installation: `python3 -m uvicorn backend.api.main:app --help`
 
 ### 3. Frontend Setup
 - [ ] Navigate to `frontend/`
-- [ ] Install dependencies: `npm install`
 - [ ] Verify installation: `npm run dev` (should start without errors)
 
 ### 4. Database Setup
 - [ ] Review `backend/database/schema.sql`
-- [ ] Database will be auto-created on first API call (if using SQLite)
-- [ ] Or run migrations manually if configured
+- [ ] Database will be auto-created on first API call (SQLite)
 
 ### 5. Git Setup
 - [ ] Initialize git: `git init` (if not already done)
 - [ ] Review `.gitignore` - ensure sensitive files are excluded
 - [ ] Set up remote repository (if applicable)
-- [ ] **DO NOT commit yet** - Wait for user approval per BEST_PRACTICES.md
+- [ ] **DO NOT commit yet** - Wait for user approval per `.windsurfrules`
 
 ## Development Workflow Reminder
 
-Before making any code changes:
-1. ✅ Read `docs/workflow/BEST_PRACTICES.md`
-2. ✅ Propose your approach to the user
-3. ✅ Wait for explicit approval
-4. ✅ Implement only after approval
-5. ✅ Propose tests after implementation
-6. ✅ Get user validation before committing
+The AI follows this mandatory sequence (defined in `.windsurfrules`):
+1. ✅ Understand requirement → ask questions if unclear
+2. ✅ Propose approach → get user approval before coding
+3. ✅ Implement → only after approval
+4. ✅ Create test script → executable `.py` file in `backend/tests/`
+5. ✅ Propose test → show what it does, wait for user approval
+6. ✅ Run test → verify it passes, check logs
+7. ✅ Get user confirmation → user says "done"
+8. ✅ Update MDs → ONLY now: check [x] tasks, update status
 
 ## Testing Setup
 
@@ -67,5 +69,8 @@ Before making any code changes:
 
 Once all checkboxes are complete, you're ready to start development!
 
-**Remember**: Always refer back to `docs/workflow/BEST_PRACTICES.md` before making changes.
+**Remember**: All AI rules live in `.windsurfrules` — single source of truth.
+
+
+
 

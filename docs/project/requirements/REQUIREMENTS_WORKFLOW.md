@@ -1,104 +1,149 @@
-# Requirements Analysis Workflow
+# Project Development Workflow
 
-This guide explains how to go from raw requirements to implemented functionalities.
+This is the **master checklist** for developing a new project from scratch. Follow each numbered file in sequence, checking off steps as you complete them.
 
 ## Workflow Overview
 
 ```
-Raw Requirements → Analysis → Functionalities → Implementation Steps → Code
+PLAN IT:  1-BRAINSTORM → 2-PRD → 3-ARCHITECTURE → 4-LOGGING
+BUILD IT: 5-EPICS → 6-BUILD → 7-CODEBASE
 ```
 
-## Step-by-Step Process
+**Continuous Workflow Tools** (updated throughout development):
+- `../../workflow/ADR.md` - Architecture Decision Records
+- `../../workflow/ERRORS.md` - Known Errors Registry
+- `../../workflow/LOGGING.md` - Active Log Tracking
 
-### Step 1: Capture Raw Requirements
+## Master Checklist
 
-**File**: `RAW_REQUIREMENTS.md`
+### 🎯 PLANNING PHASE
 
-- Add requirements in any format
-- Don't worry about structure or clarity
-- Include context, constraints, and priorities
-- Can be updated iteratively
+#### [ ] Stage 1: Brainstorm & Idea Validation
+**File**: `1-BRAINSTORM.md`
+- [ ] Fill Section 0: Freeform input (raw thoughts, any format)
+- [ ] Define the one-liner (project in one sentence)
+- [ ] Identify the problem (who, current solution, why inadequate)
+- [ ] Describe the solution (user workflow, differentiators)
+- [ ] List assumptions & risks
+- [ ] Complete feasibility check
+- [ ] Define success criteria
+- [ ] Make Go/No-Go decision
+- [ ] **Status**: `Draft` → `Validated` → `Approved`
 
-**Example**:
-```markdown
-- Users should be able to login
-- Need to store user data somewhere
-- Should be secure
-```
+#### [ ] Stage 2: Product Requirements Document
+**File**: `2-PRD.md`
+- [ ] Complete project summary table
+- [ ] Define goals & non-goals (AI guardrails)
+- [ ] Write user stories with acceptance criteria
+- [ ] List functional requirements (testable statements)
+- [ ] Define non-functional requirements (performance, security)
+- [ ] Document data requirements (if applicable)
+- [ ] Map interfaces & integrations
+- [ ] Set error handling policy
+- [ ] List constraints
+- [ ] Answer all open questions
+- [ ] **Status**: `Draft` → `Reviewed` → `Locked`
 
-### Step 2: Analyze & Rephrase Requirements
+#### [ ] Stage 3: Architecture & Technical Design
+**File**: `3-ARCHITECTURE.md`
+- [ ] Define complete tech stack with versions
+- [ ] List all approved external packages
+- [ ] Create system overview diagram
+- [ ] Break down components (responsibility, input, output)
+- [ ] Design data model (if applicable)
+- [ ] Define folder structure
+- [ ] List environment variables
+- [ ] Design API (if applicable)
+- [ ] Record key technical decisions
+- [ ] Document known limitations
+- [ ] Set performance assumptions
+- [ ] **Status**: `Draft` → `Reviewed` → `Locked`
 
-**File**: `ANALYZED_REQUIREMENTS.md`
+#### [ ] Stage 4: Logging Setup & Architecture
+**File**: `4-LOGGING.md`
+- [ ] Configure backend logging (timestamps, emojis, levels)
+- [ ] Implement HTTP request logging middleware
+- [ ] Set up frontend terminal logging (API proxy)
+- [ ] Create browser console logger utility
+- [ ] Configure database operation logging
+- [ ] Set up log file structure (/logs directory)
+- [ ] Define logging conventions (emojis, prefixes, levels)
+- [ ] Configure environment variables (LOG_LEVEL)
+- [ ] Test end-to-end logging flow
+- [ ] **Status**: `Draft` → `Configured` → `Tested` → `Locked`
 
-**With AI assistance**, we will:
-1. **Clarify** - Remove ambiguity, add specifics
-   - ❌ "Users should be able to login"
-   - ✅ "Users must authenticate using email/password. System must validate credentials against database and return JWT token."
+### 🔨 BUILDING PHASE
 
-2. **Categorize** - Group related requirements
-   - Authentication requirements
-   - Data storage requirements
-   - Security requirements
+#### [ ] Stage 5: Epics & Stories
+**File**: `5-EPICS.md`
+- [ ] Break all work into Epics
+- [ ] Create stories for each epic (1 session completable)
+- [ ] Define tasks for each story
+- [ ] Set dependencies between stories
+- [ ] Write acceptance criteria for each story
+- [ ] Estimate time for each story
+- [ ] Plan dev tests for each story
+- [ ] Update epic overview table
+- [ ] Set current status section
+- [ ] **Status**: Stories defined and prioritized
 
-3. **Prioritize** - Identify must-haves vs. nice-to-haves
-   - Priority 1: Core authentication
-   - Priority 2: Password reset
-   - Priority 3: Social login
+#### [ ] Stage 6: Build Log & Session Journal
+**File**: `6-BUILD.md`
+- [ ] Update current session info before each session
+- [ ] Maintain project health dashboard
+- [ ] Track active blockers
+- [ ] Log each session (build → test → evidence → sign-off)
+- [ ] Record cumulative test status
+- [ ] Log key decisions made during build
+- [ ] Track dependencies added
+- [ ] Complete Definition of Done checklist before scenarios
+- [ ] **Status**: Updated after every session
 
-4. **Identify Functionalities** - Break into logical features
-   - User Authentication
-   - User Management
-   - Security & Authorization
+#### [ ] Stage 7: Codebase Documentation
+**File**: `7-CODEBASE.md`
+- [ ] Update codebase map after each story
+- [ ] Document each module (purpose, exports, usage, design)
+- [ ] Maintain data flow diagrams
+- [ ] Update dependency map
+- [ ] Record technical debt
+- [ ] Follow naming conventions
+- [ ] **Status**: Always current with codebase
 
-### Step 3: Create Functionality Files
+### 🔧 CONTINUOUS WORKFLOW (Throughout Development)
 
-**Directory**: `../features/`
+These files are updated **continuously** during development, not at the end:
 
-For each identified functionality:
-1. Create a new file: `[FUNCTIONALITY_NAME].md`
-2. Use the template from `TEMPLATE.md` as a starting point
-3. Link back to analyzed requirements
+#### Architecture Decision Records
+**File**: `../../workflow/ADR.md`
+- Record decisions **as you make them** during any stage
+- Document context, alternatives, consequences
+- Reference from BUILD sessions when making technical choices
+- **Status**: Living document, append-only
 
-**Example**: `features/USER_AUTHENTICATION.md`
+#### Known Errors Registry
+**File**: `../../workflow/ERRORS.md`
+- Log bugs **as you encounter them** during BUILD
+- Document root cause and fix immediately
+- Create prevention rules for future development
+- **Status**: Living document, searchable registry
 
-### Step 4: Break Down into Steps
+#### Active Log Tracking
+**File**: `../../workflow/LOGGING.md`
+- Track what's being logged in your project
+- Update when adding new log points based on ADRs/errors
+- Document log analysis and debugging workflows
+- **Status**: Living document, updated with each feature
 
-Within each functionality file, create an **Implementation Plan** section with:
+### 🧪 TESTING PHASE
 
-1. **High-level steps** - Major phases
-2. **Detailed tasks** - Specific actions
-3. **Dependencies** - What needs to be done first
-4. **Acceptance criteria** - How to verify completion
-
-**Example Structure**:
-```markdown
-## Implementation Plan
-
-### Step 1: Database Schema
-- Tasks:
-  - [ ] Create users table
-  - [ ] Add email, password_hash columns
-  - [ ] Create migration script
-- Dependencies: None
-- Acceptance: Users table exists with correct schema
-
-### Step 2: Authentication API
-- Tasks:
-  - [ ] Create POST /api/auth/login endpoint
-  - [ ] Implement password verification
-  - [ ] Generate JWT tokens
-- Dependencies: Step 1
-- Acceptance: Can authenticate and receive token
-```
-
-### Step 5: Implementation
-
-Once steps are defined:
-1. Review with user
-2. Get approval per `BEST_PRACTICES.md`
-3. Implement code
-4. Create tests
-5. Verify against acceptance criteria
+#### [ ] Blind Test Scenarios
+**File**: `../testing/BLIND_SCENARIOS.md`
+- [ ] Complete Definition of Done checklist first
+- [ ] Run scenarios cold (no pre-testing)
+- [ ] Record results for each scenario
+- [ ] Fix any failures and re-run all scenarios
+- [ ] Complete blind test sign-off
+- [ ] **Status**: Only run after development complete
 
 ## Best Practices
 

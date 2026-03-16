@@ -1,12 +1,13 @@
 """
 FastAPI main application.
 
-⚠️ Before making changes, read: ../../docs/workflow/BEST_PRACTICES.md
+⚠️ Before making changes, read: .windsurfrules
 Always check with the user before modifying this file.
 """
 
 import sys
 from pathlib import Path
+from contextlib import asynccontextmanager
 
 # Add project root to path for shared imports
 project_root = Path(__file__).parent.parent.parent
@@ -19,17 +20,28 @@ from backend.database.connection import init_database
 # Import routes (create these as needed)
 # from backend.api.routes import example
 
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Application lifespan manager - handles startup and shutdown."""
+    # Startup: Initialize database
+    init_database()
+    yield
+    # Shutdown: cleanup if needed
+
+
 # Create FastAPI app
 app = FastAPI(
     title="API Template",
     description="Template FastAPI application",
-    version="1.0.0"
+    version="1.0.0",
+    lifespan=lifespan
 )
 
-# Configure CORS
+# Configure CORS - default to localhost frontend, change for production
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, specify actual frontend URL
+    allow_origins=["http://localhost:3000"],  # Frontend URL - add production URL when deploying
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -37,12 +49,6 @@ app.add_middleware(
 
 # Include routers (uncomment when routes are created)
 # app.include_router(example.router, prefix="/api", tags=["example"])
-
-
-@app.on_event("startup")
-async def startup_event():
-    """Initialize database on application startup."""
-    init_database()
 
 
 @app.get("/")
@@ -55,4 +61,7 @@ async def root():
 async def health():
     """Health check endpoint."""
     return {"status": "healthy"}
+
+
+
 
