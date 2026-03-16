@@ -5,7 +5,6 @@
 
 | File | Trigger | Purpose |
 |------|---------|---------|
-| `BEST_PRACTICES.md` | Writing code | Dev workflow, testing, approval sequence |
 | `GIT_WORKFLOW.md` | Committing code | Commit convention, push rules |
 | `ADR.md` | Technical decision | Log decisions, check past decisions |
 | `ERRORS.md` | Debugging error | Check known errors, investigation method |
