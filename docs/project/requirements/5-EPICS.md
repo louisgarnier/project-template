@@ -40,7 +40,7 @@
 - [ ] Initialize repo, set up `.gitignore`
 - [ ] Create `requirements.txt` / `package.json` with approved deps
 - [ ] Configure `ruff` + `black` (Python) or `eslint` + `prettier` (Node)
-- [ ] Verify `.windsurfrules` is present
+- [ ] Verify `CLAUDE.md` is present
 
 **Test:** `make setup && make lint` runs without errors.
 

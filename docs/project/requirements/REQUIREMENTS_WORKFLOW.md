@@ -10,9 +10,8 @@ BUILD IT: 5-EPICS → 6-BUILD → 7-CODEBASE
 ```
 
 **Continuous Workflow Tools** (updated throughout development):
-- `../../workflow/ADR.md` - Architecture Decision Records
-- `../../workflow/ERRORS.md` - Known Errors Registry
-- `../../workflow/LOGGING.md` - Active Log Tracking
+- `../../../workflow/ADR.md` - Architecture Decision Records
+- `../../../workflow/ERRORS.md` - Known Errors Registry
 
 ## Master Checklist
 
@@ -20,15 +19,16 @@ BUILD IT: 5-EPICS → 6-BUILD → 7-CODEBASE
 
 #### [ ] Stage 1: Brainstorm & Idea Validation
 **File**: `1-BRAINSTORM.md`
-- [ ] Fill Section 0: Freeform input (raw thoughts, any format)
-- [ ] Define the one-liner (project in one sentence)
-- [ ] Identify the problem (who, current solution, why inadequate)
-- [ ] Describe the solution (user workflow, differentiators)
-- [ ] List assumptions & risks
-- [ ] Complete feasibility check
-- [ ] Define success criteria
-- [ ] Make Go/No-Go decision
-- [ ] **Status**: `Draft` → `Validated` → `Approved`
+**Trigger**: *"Let's start the brainstorm for [project name]"* — or run `python scripts/brainstorm.py`
+- [ ] §0: Freeform input (raw thoughts, any format)
+- [ ] §1: Define the one-liner (no conjunctions)
+- [ ] §2: Identify the problem (who / current solution / why inadequate)
+- [ ] §3: Describe the solution (user's journey, high-level only)
+- [ ] §4: List assumptions & risks
+- [ ] §5: Complete feasibility check
+- [ ] §6: Go/No-Go decision (includes success criteria)
+- [ ] **Output**: `docs/project/config/brainstorm.md` with GO decision
+- [ ] **Status**: `Draft` → `Validated` → `GO — proceed to PRD`
 
 #### [ ] Stage 2: Product Requirements Document
 **File**: `2-PRD.md`
@@ -114,25 +114,18 @@ BUILD IT: 5-EPICS → 6-BUILD → 7-CODEBASE
 These files are updated **continuously** during development, not at the end:
 
 #### Architecture Decision Records
-**File**: `../../workflow/ADR.md`
+**File**: `../../../workflow/ADR.md`
 - Record decisions **as you make them** during any stage
 - Document context, alternatives, consequences
 - Reference from BUILD sessions when making technical choices
 - **Status**: Living document, append-only
 
 #### Known Errors Registry
-**File**: `../../workflow/ERRORS.md`
+**File**: `../../../workflow/ERRORS.md`
 - Log bugs **as you encounter them** during BUILD
 - Document root cause and fix immediately
 - Create prevention rules for future development
 - **Status**: Living document, searchable registry
-
-#### Active Log Tracking
-**File**: `../../workflow/LOGGING.md`
-- Track what's being logged in your project
-- Update when adding new log points based on ADRs/errors
-- Document log analysis and debugging workflows
-- **Status**: Living document, updated with each feature
 
 ### 🧪 TESTING PHASE
 
@@ -167,39 +160,4 @@ These files are updated **continuously** during development, not at the end:
 - ✅ Include testing in steps
 - ✅ Document dependencies
 - ❌ Don't create vague or too-large steps
-
-## Quick Reference
-
-| Stage | File/Directory | Purpose |
-|-------|---------------|---------|
-| Input | `RAW_REQUIREMENTS.md` | Initial requirements capture |
-| Analysis | `ANALYZED_REQUIREMENTS.md` | Rephrased, structured requirements |
-| Breakdown | `../features/[NAME].md` | Individual functionality with steps |
-| Implementation | Code files | Actual code implementation |
-
-## Example Workflow
-
-1. **User adds to RAW_REQUIREMENTS.md**:
-   ```
-   - Need user login
-   - Store passwords securely
-   ```
-
-2. **AI analyzes and creates ANALYZED_REQUIREMENTS.md**:
-   - Identifies "User Authentication" functionality
-   - Breaks into: login, registration, password security
-
-3. **AI creates features/USER_AUTHENTICATION.md**:
-   - Defines steps: database schema → API endpoints → frontend → tests
-
-4. **User reviews and approves**
-
-5. **Implementation begins following steps**
-
----
-
-**Related Documents**:
-- [Best Practices](../../workflow/BEST_PRACTICES.md)
-- [Feature Template](./TEMPLATE.md)
-- [Features Directory](../features/README.md)
 

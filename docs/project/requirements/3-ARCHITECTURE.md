@@ -97,7 +97,7 @@
                              ↓
                     ┌─────────────────┐
                     │  DATABASE       │
-                    │  (SQLite)       │
+                    │  [DB_CHOICE]    │
                     └─────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────┐
@@ -110,7 +110,7 @@
 **Data Flow:**
 1. User interacts with **Frontend** (Next.js React app)
 2. Frontend makes HTTP requests to **Backend** (FastAPI)
-3. Backend processes requests, interacts with **Database** (SQLite)
+3. Backend processes requests, interacts with **Database** ([DB_CHOICE])
 4. **Logger** tracks all operations (backend terminal + file logs)
 5. **Scripts** provide development utilities (git operations, setup)
 6. All layers log to centralized logging system for debugging
@@ -155,7 +155,7 @@
   - `backend/database/connection.py` — Database connection management
   - `backend/database/schema.sql` — Database schema definition
   - `backend/database/migrations/` — Schema migrations
-- **Key dependencies:** SQLite (default), SQLAlchemy (if using ORM)
+- **Key dependencies:** [DB_CHOICE from Section 1] + ORM/client if applicable
 - **Logging:** Database operation logs (connections, queries, errors)
 
 ### Component 4: Scripts & Utilities
@@ -190,7 +190,7 @@
 
 ```
 template_project/
-├── .windsurfrules              # AI behavioral rules (single source of truth)
+├── CLAUDE.md                   # AI behavioral rules (single source of truth)
 ├── README.md                   # Project overview and quick start
 ├── SETUP_CHECKLIST.md          # Setup verification checklist
 │
@@ -254,16 +254,15 @@ template_project/
 │   │   │           └── story-X.Y.md
 │   │   └── testing/
 │   │       └── BLIND_SCENARIOS.md  ← SEALED during development
-│   └── workflow/              # HOW to behave (always active)
-│       ├── ADR.md            # Architecture Decision Records
-│       ├── ERRORS.md         # Known Errors Registry
-│       ├── LOGGING.md        # Active Log Tracking
-│       ├── GIT_WORKFLOW.md   # Git operations guide
-│       └── README.md
+├── workflow/                  # HOW to behave (always active)
+│   ├── ADR.md               # Architecture Decision Records
+│   └── ERRORS.md            # Known Errors Registry
 │
 ├── scripts/
 │   ├── setup.sh              # Automated environment setup
-│   └── git_ops.py            # Git command wrapper
+│   ├── git_ops.py            # Git command wrapper
+│   ├── brainstorm.py         # Interactive brainstorm generator
+│   └── new_project.py        # New project initializer
 │
 ├── logs/                      # Log files (gitignored)
 │   ├── backend_YYYY-MM-DD.log    # Backend operations, errors, startup
@@ -280,9 +279,9 @@ template_project/
 - `backend/` and `frontend/` are **separate** with their own dependencies
 - `docs/project/requirements/` = read-only instructions
 - `docs/project/config/` = project-specific generated content
-- `docs/workflow/` = living documents updated during development
+- `workflow/` = living documents updated during development
 - `logs/` = centralized logging output (all components log here)
-- `.windsurfrules` = AI behavioral contract (never modify)
+- `CLAUDE.md` = AI behavioral contract (never modify)
 
 ---
 

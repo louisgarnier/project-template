@@ -351,13 +351,13 @@ from src.[module].[file] import [name]
 
 **This living codebase documentation provides reference material for:**
 
-### → ../../workflow/ADR.md (Architecture Decision Records)
+### → ../../../workflow/ADR.md (Architecture Decision Records)
 - **Design Rationale** → Context for why architectural choices were made
 - **Component Interactions** → Understanding of system dependencies for decision impact analysis
 - **Technical Debt** → Known limitations that inform future architectural decisions
 - **Change Log Patterns** → Historical context for decision review triggers
 
-### → ../../workflow/ERRORS.md (Known Errors Registry)
+### → ../../../workflow/ERRORS.md (Known Errors Registry)
 - **Module Locations** → Precise file paths for error categorization and fixes
 - **Component Dependencies** → Understanding blast radius of errors and fixes
 - **Current State** → Accurate module behavior for root cause analysis

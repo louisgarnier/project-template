@@ -204,8 +204,8 @@ e.g.  12 passed, 0 failed — coverage: 84%
 - **Dependencies Added** → CODEBASE Section: Dependency Map (track new imports)
 - **Technical Debt** → CODEBASE Section: Known Technical Debt (document shortcuts)
 - **Architectural Changes** → CODEBASE change log entries (what changed and why)
-- **Session Decisions** → Feed into `../../workflow/ADR.md` (significant technical choices)
-- **Bugs Encountered** → Feed into `../../workflow/ERRORS.md` (problems found and fixed)
+- **Session Decisions** → Feed into `../../../workflow/ADR.md` (significant technical choices)
+- **Bugs Encountered** → Feed into `../../../workflow/ERRORS.md` (problems found and fixed)
 
 ---
 

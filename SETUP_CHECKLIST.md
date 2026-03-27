@@ -4,8 +4,7 @@
 
 ## Pre-Development Checklist
 
-- [ ] **Read `.windsurfrules`** - ⚠️ **MANDATORY** - All AI behavioral rules
-- [ ] **Read `docs/workflow/GIT_WORKFLOW.md`** - Understand git workflow
+- [ ] **Read `CLAUDE.md`** - ⚠️ **MANDATORY** - All AI behavioral rules
 - [ ] **Review `README.md`** - Understand the 3-tier documentation architecture
 - [ ] **Install dependencies** - Run `./scripts/setup.sh`
 
@@ -32,17 +31,17 @@ This will:
 
 ### 4. Database Setup
 - [ ] Review `backend/database/schema.sql`
-- [ ] Database will be auto-created on first API call (SQLite)
+- [ ] Configure database per `docs/project/config/architecture.md` (PostgreSQL / Supabase / SQLite)
 
 ### 5. Git Setup
 - [ ] Initialize git: `git init` (if not already done)
 - [ ] Review `.gitignore` - ensure sensitive files are excluded
 - [ ] Set up remote repository (if applicable)
-- [ ] **DO NOT commit yet** - Wait for user approval per `.windsurfrules`
+- [ ] **DO NOT commit yet** - Wait for user approval per `CLAUDE.md`
 
 ## Development Workflow Reminder
 
-The AI follows this mandatory sequence (defined in `.windsurfrules`):
+The AI follows this mandatory sequence (defined in `CLAUDE.md`):
 1. ✅ Understand requirement → ask questions if unclear
 2. ✅ Propose approach → get user approval before coding
 3. ✅ Implement → only after approval
@@ -69,7 +68,7 @@ The AI follows this mandatory sequence (defined in `.windsurfrules`):
 
 Once all checkboxes are complete, you're ready to start development!
 
-**Remember**: All AI rules live in `.windsurfrules` — single source of truth.
+**Remember**: All AI rules live in `CLAUDE.md` — single source of truth.
 
 
 

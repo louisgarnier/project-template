@@ -57,10 +57,9 @@ Project-specific output goes to `docs/project/config/` — never overwrite these
                               ↓ ↓ ↓
                     ┌─────────────────────────┐
                     │  CONTINUOUS WORKFLOW    │
-                    │  ../../workflow/        │
+                    │  ../../../workflow/     │
                     │  • ADR.md (decisions)   │
                     │  • ERRORS.md (bugs)     │
-                    │  • LOGGING.md (logs)    │
                     └─────────────────────────┘
 
 🧪 TESTING PHASE
@@ -94,4 +93,4 @@ See [REQUIREMENTS_WORKFLOW.md](./REQUIREMENTS_WORKFLOW.md) for the complete step
 **## Related Documents**:
 - [Master Workflow](./REQUIREMENTS_WORKFLOW.md) - Complete checklist
 - [Config Output](../config/) - Project-specific generated content
-- [Workflow Rules](../../workflow/) - How the AI behaves (always active)
+- [Workflow Rules](../../../workflow/) - How the AI behaves (always active)

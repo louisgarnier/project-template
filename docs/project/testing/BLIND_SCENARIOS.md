@@ -1,7 +1,7 @@
 # 🔒 Blind Test Scenarios
 > **SEALED DURING DEVELOPMENT**
 > This file is written at PRD stage and NOT touched until dev is complete.
-> The AI is explicitly forbidden from reading this file during development (see `.windsurfrules`).
+> The AI is explicitly forbidden from reading this file during development (see `CLAUDE.md`).
 > These scenarios test robustness — the code must handle them without having been designed for them.
 > Run these ONLY after `docs/5-BUILD.md` Definition of Done checklist is fully checked.
 

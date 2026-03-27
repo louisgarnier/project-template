@@ -123,7 +123,7 @@ causing the schema validator to reject rows that were actually valid."]
 
 #### Prevention Rule
 > The standing rule the AI must follow to never reproduce this error.
-> This gets enforced in `.windsurfrules` if it's a recurring pattern.
+> This gets enforced in `CLAUDE.md` if it's a recurring pattern.
 
 > 🔒 **RULE ERR-001:** [Write the rule as a clear instruction]
 > *Example: "Always explicitly set `keep_default_na=False` when calling `pd.read_csv()` on user-supplied files."*
@@ -143,7 +143,7 @@ causing the schema validator to reject rows that were actually valid."]
 ## 🔒 Prevention Rules Summary
 > Consolidated list of all ERR-derived rules.
 > The AI checks this list before writing code in affected areas.
-> High-severity rules are also added to `.windsurfrules`.
+> High-severity rules are also added to `CLAUDE.md`.
 
 | Rule ID | Applies To | Rule |
 |---|---|---|

@@ -1,29 +1,21 @@
-# 🧠 Stage 1 — Brainstorm & Idea Analysis
+# 🧠 Stage 1 — Brainstorm & Idea Validation
+
 > **Output →** `docs/project/config/brainstorm.md`
-> **Instructions:** Fill this out BEFORE writing any requirements.
-> Goal: validate the idea is worth building before investing time.
-> Status: `[ ] Draft` → `[ ] Validated` → `[ ] Approved → Proceed to PRD`
+>
+> **Two ways to complete this stage:**
+> - **Manual:** Fill this template directly, copy output to `docs/project/config/brainstorm.md`
+> - **Script (optional shortcut):** `python scripts/brainstorm.py` — asks the same questions interactively
+>
+> **Goal:** Decide if this idea is worth building — before writing a single line of code.
+> **Status:** `[ ] Draft` → `[ ] Validated` → `[ ] GO — Proceed to PRD`
 
 ---
 
 ## 0. Freeform Input
-> *Start here with completely unstructured thoughts. Write anything - bullet points, paragraphs, random ideas.*
-> *This section gets rephrased into the structured sections below.*
+> *Start here. No structure required. Raw thoughts, constraints, links, screenshots — anything.*
 
 ```
-[Add your raw thoughts, requirements, ideas here in any format]
-
-Examples:
-- Users need to login somehow
-- Store data in a database
-- Should be fast and secure
-- Maybe add social login later?
-- Need to handle errors gracefully
-```
-
-**Notes & Context:**
-```
-[Add any background information, constraints, priorities, or questions here]
+[dump everything you know about this idea here]
 ```
 
 ---
@@ -40,17 +32,17 @@ Examples:
 ---
 
 ## 2. The Problem
-> *What pain does this solve? Be specific — generic answers = vague projects.*
+> *What pain does this solve? Be specific — generic answers produce vague projects.*
 
 - **Who has this problem?**
-- **How are they solving it today?** (manual process, other tool, not at all)
+- **How are they solving it today?** (manual process / other tool / not at all)
 - **Why is the current solution inadequate?**
 - **How often does this problem occur?**
 
 ---
 
 ## 3. The Solution
-> *What are you building? Describe it from the USER's perspective, not the tech perspective.*
+> *Describe it from the USER's perspective, not the tech perspective. Keep it high-level — details go in the PRD.*
 
 **Core workflow (user's journey):**
 1. User does X
@@ -67,7 +59,6 @@ Examples:
 | Assumption | Risk if Wrong | Mitigation |
 |---|---|---|
 | [e.g. Data is available in CSV format] | [Pipeline fails at ingestion] | [Validate format at kickoff] |
-| | | |
 
 ---
 
@@ -84,93 +75,37 @@ Examples:
 
 ---
 
-## 6. Success Definition
-> *How will you know this project succeeded? Make it measurable.*
+## 6. Go / No-Go Decision
+> *Commit or don't. Include what success looks like — that's your commit criteria.*
 
-- **Minimum success (MVP done):** _______
-- **Full success:** _______
-- **Failure looks like:** _______
+**What does success look like?**
+- Minimum (MVP done): _______
+- Full success: _______
+- Failure looks like: _______
 
----
-
-## 7. Goals & Scope Definition
-> *Define what you ARE and ARE NOT building. This feeds directly into 2-PRD.md Goals & Non-Goals.*
-
-### ✅ Core Goals (What Success Looks Like)
-- G1: [Specific, measurable goal from your solution]
-- G2: [Another core goal]
-- G3: [Third core goal]
-
-### ❌ Explicit Non-Goals (What You Will NOT Build)
-- NG1: [Feature/capability you're explicitly excluding + why]
-- NG2: [Another exclusion + reason]
-- NG3: [Third exclusion + reason]
-
-### 🔜 Future Considerations (v2 and beyond)
-- [Enhancement idea] - defer until core is proven
-- [Integration idea] - wait for user feedback
-- [Advanced feature] - complexity too high for MVP
-
----
-
-## 8. User Types & Core Workflows
-> *Identify who will use this and their primary workflows. This seeds 2-PRD.md User Stories.*
-
-### Primary Users
-- **[User Type 1]:** [Who they are, what they need]
-- **[User Type 2]:** [Who they are, what they need]
-
-### Core User Workflows
-1. **[Workflow Name]:** [User Type] wants to [action] so they can [outcome]
-2. **[Workflow Name]:** [User Type] wants to [action] so they can [outcome]
-3. **[Workflow Name]:** [User Type] wants to [action] so they can [outcome]
-
----
-
-## 9. Requirements Seeds
-> *High-level requirements that will be detailed in 2-PRD.md*
-
-### Functional Requirements (What the system must do)
-- FR1: [Core function from your solution]
-- FR2: [Another core function]
-- FR3: [Third core function]
-
-### Non-Functional Requirements (Quality attributes)
-- NFR1: [Performance requirement from feasibility check]
-- NFR2: [Security requirement if mentioned]
-- NFR3: [Reliability requirement if mentioned]
-
-### Constraints
-- C1: [Technical constraint from assumptions]
-- C2: [Business constraint]
-- C3: [Time/resource constraint]
-
----
-
-## 10. Go / No-Go Decision
-> *Honest gut check before moving to PRD.*
-
+**Decision:**
 ```
-[ ] GO — The problem is real, the solution is scoped, I'm committing to this
+[ ] GO   — The problem is real, the solution is scoped, I'm committing to this
 [ ] NO-GO — Reasons: _______________
-[ ] PARK — Good idea, wrong time. Revisit: _______________
+[ ] PARK  — Good idea, wrong time. Revisit: _______________
 ```
 
-**Decision rationale:**
+**Rationale:**
 
 ---
 
 ## 📤 Outputs for 2-PRD.md
 
-**If GO decision made, these outputs feed directly into the PRD:**
+> *If GO: these feed the PRD. The PRD is where goals, users, and requirements get detailed — not here.*
 
-- **Project Name & One-liner** → PRD Section 1 (Project Summary)
-- **Goals & Non-Goals** → PRD Section 2 (Goals & Non-Goals)
-- **User Types & Workflows** → PRD Section 3 (User Stories)
-- **Requirements Seeds** → PRD Sections 4-5 (Functional & Non-Functional Requirements)
-- **Constraints** → PRD Section 9 (Constraints)
-- **Assumptions & Risks** → PRD Section 10 (Open Questions)
+| Brainstorm | → PRD input |
+|---|---|
+| Name + one-liner (§1) | Project Summary |
+| Problem + solution (§2-3) | Context & user story seeds |
+| Assumptions & risks (§4) | Open Questions & Constraints |
+| Feasibility (§5) | Non-functional requirements, constraints |
+| Go/No-Go rationale (§6) | Goals framing |
 
 ---
 
-*→ If GO: proceed to `2-PRD.md` with the structured outputs above*
+*→ If GO: proceed to `2-PRD.md`*
