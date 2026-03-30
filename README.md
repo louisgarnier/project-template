@@ -1,6 +1,26 @@
 # Project Template
 
-⚠️ **IMPORTANT: All behavioral rules are in `CLAUDE.md` — AI reads this on every session**
+## Two scenarios — pick one
+
+### Scenario A — New project from scratch
+Clone this entire repo into a new repository. Everything is ready: scaffold, docs, workflow, CLAUDE.md.
+```
+git clone <this repo> my-new-project
+cd my-new-project
+./scripts/setup.sh
+```
+Then start at Step 1: read `docs/project/requirements/1-BRAINSTORM.md`.
+
+### Scenario B — Adding features to an existing project
+Copy the `feature-setup/` folder contents into your existing project root. It contains only the docs and workflow files — no scaffold.
+```
+cp -r feature-setup/. /path/to/your/existing/project/
+```
+Then fill in `CLAUDE.md` (project name, stack, non-goals) and start at Step 1.
+
+> The global `~/.claude/CLAUDE.md` handles all process and skill rules for both scenarios.
+
+---
 
 This is a **template project** for quickly starting new full-stack applications with a rigorous development workflow.
 
