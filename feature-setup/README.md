@@ -5,7 +5,6 @@ Copy this folder's contents into the root of any existing project to add the ful
 ## What's included
 
 ```
-CLAUDE.md                          ← project-level context (fill in name, stack, non-goals)
 docs/project/requirements/         ← read-only process templates (never modify)
 docs/project/config/               ← empty output files (fill in as you build)
 docs/project/testing/              ← blind test scenarios (sealed during development)
@@ -17,6 +16,5 @@ scripts/git_ops.py                 ← git wrapper (all git commands go through 
 ## How to use
 
 1. Copy this folder's contents into your project root
-2. Fill in `CLAUDE.md` — project name, stack, non-goals
-3. The global `~/.claude/CLAUDE.md` handles all process and skill rules automatically
-4. Start at Step 1: read `docs/project/requirements/1-BRAINSTORM.md`
+2. Update your existing `CLAUDE.md` with any project-specific context the agent needs to build this feature (e.g. stack constraints, non-goals, modules to be aware of) — the global `~/.claude/CLAUDE.md` handles all process and skill rules automatically
+3. Tell the agent: *"let's create a new feature"* — it will follow the requirements workflow from Step 1 automatically
