@@ -22,6 +22,10 @@ Then fill in `CLAUDE.md` (project name, stack, non-goals) and start at Step 1.
 
 ---
 
+> **Rule:** Any file added to `docs/integrations/` must also be added to `feature-setup/docs/integrations/`. Both must always be in sync.
+
+---
+
 This is a **template project** for quickly starting new full-stack applications with a rigorous development workflow.
 
 ## Tech Stack
